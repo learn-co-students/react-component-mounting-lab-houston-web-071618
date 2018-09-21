@@ -21,8 +21,8 @@ componentWillUnmount(){
 
 
   render() {
-
-    const { time, color } = this.state
+    //const { time, color, className } = this.state //took out className app still works
+    const { time, color} = this.state
     return (
       <section className="Timer" style={{background: color}}>
 
