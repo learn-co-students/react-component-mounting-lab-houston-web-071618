@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 
 class Timer extends Component {
-
-  state = {
-    time: 0,
-    color: '#'+Math.floor(Math.random()*16777215).toString(16)
+  constructor() {
+    super()
+    this.state = {
+      time: 0,
+      color: '#'+Math.floor(Math.random()*16777215).toString(16)
+    }
+    console.log("Timer Component: constructed");
   }
 
   // add your code here
+
+  componentDidMount() {
+    console.log("Timer Component: mounted");
+    this.updateInterval = setInterval(() => this.clockTick(), 1000)
+  }
+
+  componentWillUnmount() {
+    console.log("Timer Component: unmounted");
+    clearInterval(this.updateInterval);
+  }
 
 
 
@@ -16,7 +29,7 @@ class Timer extends Component {
 
 
   render() {
-
+    console.log("Timer Component: rendered");
     const { time, color, className } = this.state
     return (
       <section className="Timer" style={{background: color}}>

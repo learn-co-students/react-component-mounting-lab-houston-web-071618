@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
-
 import Timer from './Timer'
 
 class App extends Component {
 
-  //no props being used here, so we can use the shorthand declaration of state
-  state = {
-    timerIDs: []
+  constructor() {
+    super()
+    console.log("App Component: constructed");
+
+
+    this.state = {
+      timerIDs: []
+    }
   }
 
-
-  //Your code here:
-
-
-
-
-
-
-
-
+  componentDidMount() {
+    console.log("App Component: mounted");
+    this.handleAddTimer()
+  }
 
   // No need to modify anything in render or the class methods below
   // Unless, of course, you're curious about how it all works
   render() {
-
+    console.log("App Component: rendered");
     return (
       <div className="App">
         <h1>MultiTimer</h1>
